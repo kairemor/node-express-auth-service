@@ -42,4 +42,8 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
   });
 });
 
+router.get('/me', authenticate.verifyUser, (req, res, next) => {
+  res.json(req.user);
+});
+
 module.exports = router;
