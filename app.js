@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const cors = require('cors')();
 const url = require('./config/config').mongoUrl;
 
 mongoose.connect(url, {
@@ -25,6 +26,7 @@ app.use(passport.session());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(cors)
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({

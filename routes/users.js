@@ -36,9 +36,8 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.json({
-    success: true,
     token: token,
-    msg: 'you are logged in'
+    id: req.user._id,
   });
 });
 
